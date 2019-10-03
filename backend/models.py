@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class User(models.Model):
@@ -16,6 +17,9 @@ class Ingredient(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('ingredient-detail', args = [str(self.id)])
+
 class Article(models.Model):
     title = models.CharField(max_length = 100, help_text = "Enter title")
     user = models.ForeignKey('User', on_delete = models.SET_NULL, null = True)
@@ -25,6 +29,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('article-detail', args = [str(self.id)])
 
 
     
