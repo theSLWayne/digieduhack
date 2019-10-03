@@ -5,7 +5,7 @@
         <h3>{{ article.title }}</h3>
         <h5>Published on {{ article.created_on }} </h5>
         <h5>Created by {{ article.user.name }}</h5>
+        <p>Ingredients: {% for ingredient in article.ingredients.all %} <a href="{{ ingredient.get_absolute_url }}"> {{ ingredient.name }}</a> {% endfor %}</p>
         <p>Description: {{ article.description }}</p>
-        <p>Ingredients: {% for ingredient in article.ingredients.all %} {{ ingredient.name }} {% endfor %}</p>
     </div>
 {% endblock content %}

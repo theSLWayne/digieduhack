@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {% for ingredient in ingredient_list %}
+        <a href="{{ ingredient.get_absolute_url }}">Ingredient Name: {{ ingredient.name }}</a><br>
+    {% endfor %}
+</div>
+{% endblock content %}
