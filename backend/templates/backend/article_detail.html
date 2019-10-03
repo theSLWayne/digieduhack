@@ -7,5 +7,6 @@
         <h5>Created by {{ article.user.name }}</h5>
         <p>Ingredients: {% for ingredient in article.ingredients.all %} <a href="{{ ingredient.get_absolute_url }}"> {{ ingredient.name }}</a> {% endfor %}</p>
         <p>Description: {{ article.description }}</p>
+        <img src="{{ article.photo.url }}">
     </div>
 {% endblock content %}

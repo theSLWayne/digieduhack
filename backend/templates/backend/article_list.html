@@ -1,9 +1,16 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div>
+<div class="row">
     {% for article in article_list %}
-        <a href="{{ article.get_absolute_url }}">Article Name: {{ article.title }}</a><br>
+        <div class="card col-3" style="width: 18rem; margin: 20px;">
+            <img src="{{ article.photo.url }}" class="card-img-top" width=250 height=250 alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ article.title }}</h5>
+              <p class="card-text">{{ article.user.name }}</p>
+              <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
     {% endfor %}
 </div>
 {% endblock content %}
