@@ -1,9 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div>
+<div class="card-deck row">
     {% for ingredient in ingredient_list %}
-        <a href="{{ ingredient.get_absolute_url }}">Ingredient Name: {{ ingredient.name }}</a><br>
+        <div class="card col-3">
+            <img class="card-img-top" height="200" width="200" src="{{ ingredient.photo.url }}" alt="...">
+            <div class="card-body">
+                <a href="{{ ingredient.get_absolute_url }}"><h5 class="card-title">{{ ingredient.name }}</h5></a>
+                <p class="card-text">{{ ingredient.manufacturer }}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">{{ ingredient.price }}</small>
+            </div>
+        </div>
     {% endfor %}
 </div>
 {% endblock content %}
