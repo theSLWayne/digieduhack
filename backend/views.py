@@ -19,7 +19,7 @@ def index(request):
 
 class ArticleListView(generic.ListView):
     model = Article
-    paginate_by = 10
+    #paginate_by = 10
 
 class ArticleDetailView(generic.DetailView):
     model = Article
@@ -30,4 +30,3 @@ class IngredientListView(generic.ListView):
 
 class IngredientDetailView(generic.DetailView):
     model = Ingredient
-

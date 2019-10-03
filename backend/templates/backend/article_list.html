@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    {% for article in article_list %}
+        <p>Article Name: {{ article.title }}</p>
+    {% endfor %}
+</div>
+{% endblock content %}
