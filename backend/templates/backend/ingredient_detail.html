@@ -2,9 +2,24 @@
 
 {% block content %}
     <div>
-        <h3>{{ ingredient.name }}</h3>
+        <h1><strong>{{ ingredient.name }}</strong></h1>
         <h5>Manufacturer: {{ ingredient.manufacturer }} </h5>
         <h5>Price: {{ ingredient.price }}</h5>
+        <hr>
         <img src="{{ ingredient.photo.url }}">
+        <hr>
+        <h1><strong><center>Gadgets made with {{ ingredient.name }}</center></strong></h1>
+        <div class="row">
+        {% for article in ingredient.article_set.all %}
+            <div class="card col-3 bg-secondary" style="width: 18rem; margin: 20px; background-color: #343a40; color: aliceblue">
+                <img src="{{ article.photo.url }}" class="card-img-top" width=250 height=250 alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p class="card-text">{{ article.user.name }}</p>
+                <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
     </div>
 {% endblock content %}

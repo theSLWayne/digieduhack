@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<h3 style="color: aliceblue"><center><strong>Explore Articles</strong></center></h3>
+<hr>
 <div class="row">
     {% for article in article_list %}
-        <div class="card col-3" style="width: 18rem; margin: 20px;">
+        <div class="card col-3 bg-secondary" style="width: 18rem; margin: 20px; background-color: #343a40; color: aliceblue">
             <img src="{{ article.photo.url }}" class="card-img-top" width=250 height=250 alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ article.title }}</h5>

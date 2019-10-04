@@ -1,13 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<h1 style="color: aliceblue"><center><strong>Explore Ingredients</strong></center></h1>
+<hr>
 <div class="card-deck row">
     {% for ingredient in ingredient_list %}
-        <div class="card col-3">
+        <div class="card col-3 bg-light">
             <img class="card-img-top" height="200" width="200" src="{{ ingredient.photo.url }}" alt="...">
             <div class="card-body">
                 <a href="{{ ingredient.get_absolute_url }}"><h5 class="card-title">{{ ingredient.name }}</h5></a>
-                <p class="card-text">{{ ingredient.manufacturer }}</p>
+                <p class="card-text" style="color: black">{{ ingredient.manufacturer }}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">{{ ingredient.price }}</small>
