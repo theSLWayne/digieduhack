@@ -5,8 +5,8 @@
 <hr>
 <div class="row">
     {% for article in article_list %}
-        <div class="card col-3 bg-secondary" style="width: 18rem; margin: 20px; background-color: #343a40; color: aliceblue">
-            <img src="{{ article.photo.url }}" class="card-img-top" width=250 height=250 alt="...">
+        <div class="card col-3 bg-secondary" style="width: 50px; margin: 40px; background-color: #343a40; color: aliceblue">
+            <img src="{{ article.photo.url }}" class="card-img-top" width=75% height=50% alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ article.title }}</h5>
               <p class="card-text">{{ article.user.name }}</p>

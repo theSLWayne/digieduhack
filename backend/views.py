@@ -1,19 +1,28 @@
 from django.shortcuts import render
 import json
+import random
 
 # Create your views here.
 from backend.models import Article, User, Ingredient
 from django.views import generic
 
 def index(request):
-    num_articles = Article.objects.count()
-    num_ingredients = Ingredient.objects.count()
-    num_users = User.objects.count()
+    # articles = [ random.choice(Article.objects) for i in range(3) ]
+    articles = []
+    while len(articles) != 3:
+        ar = random.choice(Article.objects.all())
+        if ar not in articles:
+            articles.append(ar)
+    
+    ingredients = []
+    while len(ingredients) != 3:
+        array = random.choice(Ingredient.objects.all())
+        if array not in ingredients:
+            ingredients.append(array)
 
     context = {
-        'num_articles': num_articles,
-        'num_ingredients': num_ingredients,
-        'num_users': num_users,
+        'articles': articles,
+        'ingredients': ingredients,
     }
 
     return render(request, 'index.html', context = context)

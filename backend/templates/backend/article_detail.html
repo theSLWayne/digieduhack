@@ -6,7 +6,7 @@
         <small>Published on {{ article.created_on }}</small>
         <h5>Created by <strong>{{ article.user.name }}</strong></h5>
         <hr>
-        <img src="{{ article.photo.url }}">
+        <img src="{{ article.photo.url }}" style="width: 75%; height:30%">
         <hr>
         <p>Ingredients: {% for ingredient in article.ingredients.all %} <a href="{{ ingredient.get_absolute_url }}"> {{ ingredient.name }}</a> {% endfor %}</p>
         Description: <div class="description"> {{ article.description }} </div>

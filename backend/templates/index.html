@@ -2,12 +2,35 @@
 
 {% block content %}
     {% load static %}
-    <img src="{% static 'img/feynman.png' %}" alt="BOOOOO">
-    <h1>Welcome to Techyons!!</h1>
-    <h2>Dynamic contents</h2>
-    <ul>
-        <li><strong>Articles:</strong> {{ num_articles }}</li>
-        <li><strong>Ingredients:</strong> {{ num_ingredients }}</li>
-        <li><strong>Users:</strong> {{ num_users }}</li>
-    </ul>
+    <center><img src="{% static 'img/feynman.png' %}" alt="BOOOOO" style="width: 100%"></center>
+    <hr>
+    <h1><center><strong>Popular articles today</strong></center></h1>
+    <hr>
+    <div class="card-group">
+        {% for article in articles %}
+            <div class="card">
+              <img src="{{ article.photo.url }}" class="card-img-top" alt="Article Photo" style="width: 100%; height: 50%">
+              <div class="card-body">
+                <h5 class="card-title" style="color: grey"><a href="{{ article.get_absolute_url }}"> {{ article.title }} </a></h5>
+                <p class="card-text" style="color: black">By {{ article.user }}</p>
+                <p class="card-text"><small class="text-muted">On {{ article.created_on }}</small></p>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+    <hr>
+    <h1><center><strong>Popular ingredients today</strong></center></h1>
+    <hr>
+    <div class="card-group">
+        {% for ingredient in ingredients %}
+            <div class="card">
+              <img src="{{ ingredient.photo.url }}" class="card-img-top" alt="Article Photo" style="width: 100%; height: 50%">
+              <div class="card-body">
+                <h5 class="card-title" style="color: grey"><a href="{{ ingredient.get_absolute_url }}"> {{ ingredient.name }} </a></h5>
+                <p class="card-text" style="color: black"> $ {{ ingredient.price }}</p>
+                <p class="card-text"><small class="text-muted">By {{ ingredient.manufacturer }}</small></p>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
